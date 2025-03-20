@@ -31,7 +31,7 @@ try:
 
     if page == "Analisis Pelanggan":
         # ---- Analisis Pelanggan ----
-        st.header("🏙 Analisis Pelanggan Berdasarkan Kota")
+        st.header("🏙️ Analisis Pelanggan Berdasarkan Kota")
 
         # Menghitung jumlah pelanggan per kota
         city_counts = df_customers['customer_city'].value_counts()
@@ -45,7 +45,7 @@ try:
         st.write(city_counts.head(10))
 
         # Menampilkan informasi kota dengan pelanggan terbanyak
-        st.success(f"Customer terbanyak ada pada kota *{most_common_city}* dengan jumlah *{most_common_count}* pelanggan.")
+        st.success(f"Customer terbanyak ada pada kota **{most_common_city}** dengan jumlah **{most_common_count}** pelanggan.")
 
         # Membuat diagram batang interaktif pelanggan
         fig, ax = plt.subplots(figsize=(10, 5))
@@ -56,20 +56,6 @@ try:
         plt.xticks(rotation=45)
         st.pyplot(fig)
 
-        # ---- Tambahan: Visualisasi Jumlah Pelanggan Unik ----
-        if "customer_unique_id" in df_customers.columns:
-            jumlah_pelanggan_unik = df_customers["customer_unique_id"].nunique()
-            st.subheader("📊 Jumlah Pelanggan Unik")
-            
-            fig, ax = plt.subplots(figsize=(5, 5))
-            ax.bar(["Pelanggan Unik"], [jumlah_pelanggan_unik], color='skyblue')
-            ax.set_ylabel("Jumlah")
-            ax.set_title("Jumlah Pelanggan Unik dalam Dataset")
-            ax.text(0, jumlah_pelanggan_unik, str(jumlah_pelanggan_unik), ha='center', va='bottom', fontsize=12)
-            st.pyplot(fig)
-            
-            st.success(f"Jumlah pelanggan unik dalam dataset: **{jumlah_pelanggan_unik}**")
-    
     elif page == "Analisis Review":
         # ---- Analisis Review ----
         st.header("⭐ Analisis Review")
@@ -82,10 +68,10 @@ try:
 
             # Menampilkan jumlah review berdasarkan filter
             st.subheader(f"📌 Statistik Review (Skor {min_score}-{max_score})")
-            st.write(f"Total jumlah review dengan skor *{min_score}-{max_score}: **{filtered_reviews.shape[0]}*")
+            st.write(f"Total jumlah review dengan skor **{min_score}-{max_score}**: **{filtered_reviews.shape[0]}**")
 
             # Menampilkan distribusi skor dalam tabel
-            st.write("📊 *Distribusi Review:*")
+            st.write("📊 **Distribusi Review:**")
             st.table(review_counts)
 
             # Membuat diagram batang interaktif review
